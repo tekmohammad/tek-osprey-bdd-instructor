@@ -1,4 +1,4 @@
-package tek.ospray.runner;
+package tek.osprey.runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "classpath:features",
-        glue = "tek.ospray.steps"
+        glue = "tek.osprey.steps"
 )
 public class TestRunner {
 }
