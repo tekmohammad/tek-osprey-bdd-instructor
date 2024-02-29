@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -26,8 +27,8 @@ public class MajorFunctionalitySteps {
     public void validateTopLeftCornerTitle(String expectedTitle) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-       String actualText = wait.until(ExpectedConditions
-                .visibilityOfElementLocated(By.className("top-nav__logo")))
+        String actualText = wait.until(ExpectedConditions
+                        .visibilityOfElementLocated(By.className("top-nav__logo")))
                 .getText();
 
         Assert.assertEquals(expectedTitle, actualText);
@@ -36,6 +37,18 @@ public class MajorFunctionalitySteps {
     @Then("Close Browser")
     public void closeBrowser() {
         driver.quit();
+    }
+
+
+    @Then("Validate Sign In Button is Enabled")
+    public void validateSignInButtonEnabled() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement signInButtonElement = wait.until(ExpectedConditions
+                .visibilityOfElementLocated(By.id("signinLink")));
+
+       boolean isButtonEnabled = signInButtonElement.isEnabled();
+
+       Assert.assertTrue(isButtonEnabled);
     }
 
 }

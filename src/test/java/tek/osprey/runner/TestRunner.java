@@ -7,7 +7,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "classpath:features",
-        glue = "tek.osprey.steps"
+        glue = "tek.osprey.steps",
+        dryRun = false
 )
 public class TestRunner {
 }
